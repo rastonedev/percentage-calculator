@@ -1,11 +1,21 @@
-body {
+html, body {
     background-color: #fdf6ee;
     font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
+    flex-direction: column;
+}
+
+body {
+    overflow-y: auto;
+    padding: 16px;
+    box-sizing: border-box;
+    height: 100%;
 }
 
 .calculadora {
@@ -17,7 +27,7 @@ body {
     text-align: center;
     max-width: 350px;
     width: 90%;
-    margin: auto;
+    box-sizing: border-box;
 }
 
 input {
