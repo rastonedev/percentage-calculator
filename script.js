@@ -86,6 +86,6 @@ essenceAmountInput.addEventListener('paste', (e) => {
 });
 
 function select(btn) {
-    document.querySelectorAll('.selector .opcion').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.selector .option').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 }
