@@ -1,10 +1,10 @@
 body {
     background-color: #fdf6ee;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -24,14 +24,58 @@ input {
     width: 100%;
     box-sizing: border-box;
     padding: 12px;
-    margin: 8px 0;
     border-radius: 8px;
     border: 1px solid #d4bfa7;
-    background-color: #fff9f0;
+    background-color: #fcf5ea;
     color: #5a4a3f;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campo {
+    position: relative;
+    margin: 16px 0;
+}
+
+.campo input {
+    padding-top: 18px;
+    padding-bottom: 6px;
+}
+
+.campo input:focus {
+    border-color: #b39a89;
+    outline: none;
+}
+
+.campo input::placeholder {
+    color: transparent;
+}
+
+.campo label {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    color: #a68c7d;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    background-color: #fffaf2;
+    padding: 0 4px;
+    border-radius: 4px;
+    z-index: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.campo input:focus + label,
+.campo input:not(:placeholder-shown) + label {
+    top: -7px;
+    font-size: 0.75rem;
+    color: #8c7263;
+    z-index: 1;
 }
 
 button {
+    width: 100%;
     padding: 10px 20px;
     background-color: #e8d5b7;
     border: none;
@@ -40,6 +84,7 @@ button {
     font-weight: bold;
     color: #5a4a3f;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -51,24 +96,6 @@ p {
     color: #5a4a3f;
 }
 
-@media (max-width: 600px) {
-    .calculadora {
-        width: 90%;
-        height: 90%;
-        padding: 20px;
-    }
-
-    input {
-        width: 100%;
-        margin: 8px 0;
-    }
-
-    button {
-        width: 100%;
-        margin-top: 10px;
-    }
-}
-
 h1 {
     font-family: 'DM Serif Display', serif;
     font-size: 2rem;
@@ -77,66 +104,40 @@ h1 {
     text-align: center;
 }
 
-h1,
-h2,
-h3 {
-    font-family: 'DM Serif Display', serif;
-}
-
-body,
-p,
-input,
-button {
-    font-family: 'Quicksand', sans-serif;
-}
-
-.campo {
+.input-with-unit {
     position: relative;
-    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    height: 40px;
 }
 
-.campo input {
-    width: 100%;
-    padding: 18px 12px 6px;
-    border: 1px solid #d4bfa7;
-    border-radius: 10px;
-    background-color: #fffefb;
-    color: #5a4a3f;
-    font-size: 1rem;
-    font-family: 'Quicksand', sans-serif;
-    box-sizing: border-box;
-    box-shadow: 0 4px 10px rgba(212, 191, 167, 0.15);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+.input-with-unit input {
+    padding-right: 48px;
+    line-height: 40px;
+    height: 100%;
 }
 
-.campo input:focus {
-    border-color: #b39a89;
-    outline: none;
-    box-shadow: 0 4px 12px rgba(179, 154, 137, 0.25);
-}
-
-.campo label {
+.input-with-unit .unit {
     position: absolute;
-    top: 21px;
-    left: 12px;
-    color: #a68c7d;
-    font-size: 1rem;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    background-color: #f1e7d8;
+    border-left: 1px solid #d4bfa7;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    font-size: 0.85rem;
+    color: #5a4a3f;
     pointer-events: none;
-    transition: all 0.25s ease;
-    font-family: 'Quicksand', sans-serif;
-    background-color: #fff9f0;
-    padding: 0 4px;
-    border-radius: 4px;
 }
 
-
-.campo input:focus+label,
-.campo input:not(:placeholder-shown)+label {
-    top: 4px;
-    font-size: 0.75rem;
-    color: #8c7263;
-}
-
-.campo input::placeholder {
-    color: transparent;
+@media (max-width: 600px) {
+    .calculadora {
+        width: 90%;
+        padding: 20px;
+    }
 }

@@ -14,13 +14,11 @@ waxAmountInput.addEventListener('input', () => {
     waxAmount = parseFloat(waxAmountInput.value)
     if (!isNaN(waxAmount)) {
         isUpdating = true;
-        essenceAmountInput.value = calculateProportionWax(waxAmount) + "cc";
+        essenceAmountInput.value = calculateProportionWax(waxAmount);
         isUpdating = false;
     } else {
         essenceAmountInput.value = "";
     }
-    waxAmountInput.value = waxAmountInput.value + "g"
-    console.log(waxAmountInput.value)
 });
 
 essenceAmountInput.addEventListener('input', () => {
@@ -32,7 +30,7 @@ essenceAmountInput.addEventListener('input', () => {
     essenceAmount = parseFloat(essenceAmountInput.value)
     if (!isNaN(essenceAmount)) {
         isUpdating = true;
-        waxAmountInput.value = calculateProportionEssence(essenceAmount) + "g";
+        waxAmountInput.value = calculateProportionEssence(essenceAmount);
         isUpdating = false;
     } else {
         waxAmountInput.value = "";

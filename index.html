@@ -14,12 +14,18 @@
   <div class="calculadora">
     <h1>Calculadora de Porcentajes</h1>
     <div class="campo">
-      <input id="waxAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder=" " required>
-      <label for="waxAmount">Cantidad de cera</label>
+      <div class="input-with-unit">
+        <input id="waxAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder=" " required>
+        <label for="waxAmount">Cantidad de cera</label>
+        <span class="unit">g</span>
+      </div>
     </div>
     <div class="campo">
-      <input id="essenceAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder=" " required>
-      <label for="essenceAmount">Cantidad de esencia</label>
+      <div class="input-with-unit">
+        <input id="essenceAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder=" " required>
+        <label for="essenceAmount">Cantidad de esencia</label>
+        <span class="unit">cc</span>
+      </div>
     </div>
   </div>
   <script src="script.js"></script>
