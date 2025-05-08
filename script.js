@@ -1,8 +1,10 @@
 const waxAmountInput = document.getElementById('waxAmount');
 const essenceAmountInput = document.getElementById('essenceAmount');
+const hardenerAmountInput = document.getElementById('hardenerAmount');
 const result = document.getElementById('resultado');
 const wax = 500;
 const essence = 30;
+const hardener = 25;
 let isUpdating = false;
 
 waxAmountInput.addEventListener('input', () => {
@@ -14,10 +16,12 @@ waxAmountInput.addEventListener('input', () => {
     waxAmount = parseFloat(waxAmountInput.value)
     if (!isNaN(waxAmount)) {
         isUpdating = true;
-        essenceAmountInput.value = calculateProportionWax(waxAmount);
+        essenceAmountInput.value = calculateProportionWaxEssence(waxAmount);
+        hardenerAmountInput.value = calculateProportionHardenerWax(waxAmount);
         isUpdating = false;
     } else {
         essenceAmountInput.value = "";
+        hardenerAmountInput.value = "";
     }
 });
 
@@ -30,19 +34,47 @@ essenceAmountInput.addEventListener('input', () => {
     essenceAmount = parseFloat(essenceAmountInput.value)
     if (!isNaN(essenceAmount)) {
         isUpdating = true;
-        waxAmountInput.value = calculateProportionEssence(essenceAmount);
+        waxAmountInput.value = calculateProportionEssenceWax(essenceAmount);
+        hardenerAmountInput.value = calculateProportionHardenerWax(waxAmountInput.value);
         isUpdating = false;
     } else {
         waxAmountInput.value = "";
+        hardenerAmountInput.value = "";
     }
 });
 
-function calculateProportionWax(waxAmount) {
+hardenerAmountInput.addEventListener('input', () => {
+    if (isUpdating) return;
+    let hardenerAmount = hardenerAmountInput.value;
+    if (!/^\d*\.?\d*$/.test(hardenerAmount)) {
+        hardenerAmountInput.value = hardenerAmount.replace(/[^0-9.]/g, '');
+    }
+    hardenerAmount = parseFloat(hardenerAmountInput.value)
+    if (!isNaN(hardenerAmount)) {
+        isUpdating = true;
+        waxAmountInput.value = calculateProportionWaxHardener(hardenerAmount);
+        essenceAmountInput.value = calculateProportionWaxEssence(waxAmountInput.value);
+        isUpdating = false;
+    } else {
+        waxAmountInput.value = "";
+        essenceAmountInput.value = "";
+    }
+});
+
+function calculateProportionWaxEssence(waxAmount) {
     return (waxAmount * essence) / wax;
 }
 
-function calculateProportionEssence(essenceAmount) {
+function calculateProportionEssenceWax(essenceAmount) {
     return (essenceAmount * wax) / essence;
+}
+
+function calculateProportionHardenerWax(waxAmount) {
+    return (waxAmount * hardener) / wax;
+}
+
+function calculateProportionWaxHardener(hardenerAmount) {
+    return (hardenerAmount * wax) / hardener;
 }
 
 waxAmountInput.addEventListener('input', () => {
