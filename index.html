@@ -16,7 +16,7 @@
     <div class="selector-container">
       <p class="selector-title">Selecciona el tipo de cera</p>
       <div class="selector">
-        <button class="option active" onclick="select(this)">Bajo punto de fusión</button>
+        <button id="lowMeltingWax" class="option active" onclick="select(this)">Bajo punto de fusión</button>
         <button class="option" onclick="select(this)">Alto punto de fusión</button>
       </div>
     </div>
@@ -34,7 +34,7 @@
         <span class="unit">cc</span>
       </div>
     </div>
-    <div class="campo">
+    <div class="campo" id="hardener">
       <div class="input-with-unit">
         <input id="hardenerAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder=" " required>
         <label for="hardenerAmount">Cantidad de endurecedor</label>
