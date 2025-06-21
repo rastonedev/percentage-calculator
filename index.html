@@ -12,34 +12,46 @@
 
 <body>
   <div class="calculadora">
-    <h1>Calculadora de Porcentajes</h1>
-    <div class="selector-container">
-      <p class="selector-title">Selecciona el tipo de cera</p>
-      <div class="selector">
-        <button id="lowMeltingWax" class="option active" onclick="select(this)">Bajo punto de fusión</button>
-        <button class="option" onclick="select(this)">Alto punto de fusión</button>
+    <div class="tab-header">
+      <button class="tab active" onclick="showTab('velas', event)">Velas</button>
+      <button class="tab" onclick="showTab('resina', event)">Resina</button>
+    </div>
+
+    <div id="velas" class="tab-content active">
+      <h1>Calculadora de Porcentajes</h1>
+      <div class="selector-container">
+        <p class="selector-title">Selecciona el tipo de cera</p>
+        <div class="selector">
+          <button id="lowMeltingWax" class="option active" onclick="select(this)">Bajo punto de fusión</button>
+          <button class="option" onclick="select(this)">Alto punto de fusión</button>
+        </div>
+      </div>
+      <div class="campo">
+        <div class="input-with-unit">
+          <input id="waxAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder=" " required />
+          <label for="waxAmount">Cantidad de cera</label>
+          <span class="unit">g</span>
+        </div>
+      </div>
+      <div class="campo">
+        <div class="input-with-unit">
+          <input id="essenceAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder=" " required />
+          <label for="essenceAmount">Cantidad de esencia</label>
+          <span class="unit">cc</span>
+        </div>
+      </div>
+      <div class="campo" id="hardener">
+        <div class="input-with-unit">
+          <input id="hardenerAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder=" " required />
+          <label for="hardenerAmount">Cantidad de endurecedor</label>
+          <span class="unit">g</span>
+        </div>
       </div>
     </div>
-    <div class="campo">
-      <div class="input-with-unit">
-        <input id="waxAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder=" " required>
-        <label for="waxAmount">Cantidad de cera</label>
-        <span class="unit">g</span>
-      </div>
-    </div>
-    <div class="campo">
-      <div class="input-with-unit">
-        <input id="essenceAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder=" " required>
-        <label for="essenceAmount">Cantidad de esencia</label>
-        <span class="unit">cc</span>
-      </div>
-    </div>
-    <div class="campo" id="hardener">
-      <div class="input-with-unit">
-        <input id="hardenerAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder=" " required>
-        <label for="hardenerAmount">Cantidad de endurecedor</label>
-        <span class="unit">g</span>
-      </div>
+
+    <div id="resina" class="tab-content">
+      <h1>Calculadora de Resina</h1>
+      <p>CONTENIDO</p>
     </div>
   </div>
   <script src="script.js"></script>

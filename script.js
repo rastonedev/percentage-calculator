@@ -117,12 +117,32 @@ essenceAmountInput.addEventListener('paste', (e) => {
     }
 });
 
-function select(btn) {
-    document.querySelectorAll('.selector .option').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    if(btn.id == 'lowMeltingWax') {
-        document.getElementById('hardener').style.display = "block";
+function showTab(tabId, event) {
+    document.querySelectorAll(".tab-content").forEach((el) =>
+      el.classList.remove("active")
+    );
+    document.querySelectorAll(".tab").forEach((btn) =>
+      btn.classList.remove("active")
+    );
+    document.getElementById(tabId).classList.add("active");
+    event.currentTarget.classList.add("active");
+  }
+
+  function select(btn) {
+    document.querySelectorAll(".selector .option").forEach((b) =>
+      b.classList.remove("active")
+    );
+    btn.classList.add("active");
+
+    if (btn.id === "lowMeltingWax") {
+      document.getElementById("hardener").style.display = "block";
     } else {
-        document.getElementById('hardener').style.display = "none";
+      document.getElementById("hardener").style.display = "none";
     }
-}
+  }
+
+  window.addEventListener("load", () => {
+    const calculadora = document.querySelector(".calculadora");
+    const height = calculadora.offsetHeight;
+    calculadora.style.minHeight = height + "px";
+  });
