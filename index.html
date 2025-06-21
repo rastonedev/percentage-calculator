@@ -51,7 +51,20 @@
 
     <div id="resina" class="tab-content">
       <h1>Calculadora de Resina</h1>
-      <p>CONTENIDO</p>
+      <div class="campo">
+        <div class="input-with-unit">
+          <input id="resinAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder=" " required />
+          <label for="resinmount">Cantidad de resina (A)</label>
+          <span class="unit">g</span>
+        </div>
+      </div>
+      <div class="campo">
+        <div class="input-with-unit">
+          <input id="catalystAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder=" " required />
+          <label for="catalystAmount">Cantidad de catalizador (B)</label>
+          <span class="unit">g</span>
+        </div>
+      </div>
     </div>
   </div>
   <script src="script.js"></script>
