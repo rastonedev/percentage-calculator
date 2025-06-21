@@ -215,7 +215,7 @@ h1 {
   }
   
   .tab {
-    background-color: #fffaf2;
+    background-color: #e8d5b7;
     border: 2px solid #e8d5b7;
     border-bottom: none;
     padding: 8px 20px;
@@ -225,12 +225,12 @@ h1 {
     font-size: 0.9rem;
     color: #5a4a3f;
     cursor: pointer;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 2px -4px 6px rgba(0, 0, 0, 0.05);
     transition: background 0.3s;
   }
   
   .tab.active {
-    background-color: #e8d5b7;
+    background-color: #fffaf2;
     border-bottom: 2px solid #fffaf2;
     z-index: 11;
   }
