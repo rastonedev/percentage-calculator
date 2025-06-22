@@ -1,6 +1,8 @@
 const waxAmountInput = document.getElementById('waxAmount');
 const essenceAmountInput = document.getElementById('essenceAmount');
 const hardenerAmountInput = document.getElementById('hardenerAmount');
+const resinAmountInput = document.getElementById('resinAmount');
+const catalystAmountInput = document.getElementById('catalystAmount');
 const result = document.getElementById('resultado');
 const wax = 500;
 const essence = 30;
@@ -116,6 +118,46 @@ essenceAmountInput.addEventListener('paste', (e) => {
         e.preventDefault();
     }
 });
+
+
+function clearResinAndCatalystAmount() {
+    document.getElementById("resinAmount").value = "";
+    document.getElementById("catalystAmount").value = "";
+    document.getElementById("resinAndCatalystBtn").disabled = false;
+  }
+  
+  document.getElementById("resinAmount").addEventListener("focus", clearResinAndCatalystAmount);
+  document.getElementById("catalystAmount").addEventListener("focus", clearResinAndCatalystAmount);
+  
+
+function calculateProportionCatalyst(resinAmount) {
+    return resinAmount / 3;
+}
+
+function calculateProportionResin(catalystAmount) {
+    return catalystAmount * 2;
+}
+
+function calculateResinAndCatalyst(btn) {
+    let resinAmount = resinAmountInput.value
+    let catalystAmount = catalystAmountInput.value
+    if (!/^\d*\.?\d*$/.test(resinAmount)) {
+        resinAmountInput.value = resinAmount.replace(/[^0-9.]/g, '');
+    }
+    resinAmount = parseFloat(resinAmountInput.value)
+    if (!/^\d*\.?\d*$/.test(catalystAmount)) {
+        catalystAmount.value = catalystAmount.replace(/[^0-9.]/g, '');
+    }
+    catalystAmount = parseFloat(catalystAmountInput.value)
+    if(resinAmount){
+        catalystAmountInput.value = calculateProportionCatalyst(resinAmount);
+        resinAmountInput.value = resinAmount - catalystAmountInput.value
+        document.getElementById("resinAndCatalystBtn").disabled = true;
+    } else if(catalystAmount){
+        resinAmountInput.value = calculateProportionResin(catalystAmount);
+        document.getElementById("resinAndCatalystBtn").disabled = true;
+    }
+  }
 
 function showTab(tabId, event) {
     document.querySelectorAll(".tab-content").forEach((el) =>

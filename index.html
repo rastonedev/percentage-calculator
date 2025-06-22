@@ -50,11 +50,11 @@
     </div>
 
     <div id="resina" class="tab-content">
-      <h1>Calculadora de Resina</h1>
+      <h1>Calculadora para Resina</h1>
       <div class="campo">
         <div class="input-with-unit">
           <input id="resinAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder=" " required />
-          <label for="resinmount">Cantidad de resina (A)</label>
+          <label for="resinAmount">Cantidad de resina (A)</label>
           <span class="unit">g</span>
         </div>
       </div>
@@ -65,6 +65,7 @@
           <span class="unit">g</span>
         </div>
       </div>
+      <button id="resinAndCatalystBtn" class="button" onclick="calculateResinAndCatalyst(this)">Calcular</button>
     </div>
   </div>
   <script src="script.js"></script>
